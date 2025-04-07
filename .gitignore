@@ -1,0 +1,14 @@
+node_modules/
+package-lock.json
+npm-debug.log
+dist/
+build/
+coverage/
+.DS_Store
+Thumbs.db
+accounts/accounts.js
+config/proxy_list.js
+config/config.js
+app/accounts.js
+app/proxy_list.js
+logs/
