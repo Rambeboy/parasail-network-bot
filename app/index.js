@@ -1,8 +1,8 @@
 import chalk from "chalk";
-import { privateKey } from "./accounts/accounts.js";
-import { parasailNetwork } from "./src/core/core.js";
-import { ProxyManager } from "./src/core/api/api.js";
-import { logMessage } from "./src/utils/logger.js";
+import { privateKey } from "./accounts/accounts.js"; 
+import { parasailNetwork } from "./main/parasailNetwork.js";
+import { ProxyManager } from "./main/proxy.js";
+import { logMessage } from "./utils/logger.js";
 
 const proxyManager = new ProxyManager();
 
@@ -19,28 +19,33 @@ USE IT AT YOUR OWN RISK
   );
 
   try {
-    const count = accounts.length;
     const proxiesLoaded = proxyManager.loadProxies();
-    
     if (!proxiesLoaded) {
-      logMessage("Failed to load proxies, using default IP", "warning");
+      logMessage("No proxies loaded, using direct connection", "warning");
     }
-    
-    logMessage(`Loaded ${count} accounts`, "info");
-    console.log(chalk.greenBright("-".repeat(85)));
 
-    await Promise.all(accounts.map(async (account, i) => {
-      const currentProxy = await proxyManager.getRandomProxy();
-      const pr = new parasailNetwork(account, currentProxy);
-      await pr.singleProses();
+    logMessage(`Processing ${accounts.length} accounts...`, "info");
+    console.log(chalk.greenBright("-".repeat(50)));
+
+    await Promise.all(accounts.map(async (privateKey, index) => {
+      try {
+        const proxy = await proxyManager.getRandomProxy();
+        const worker = new parasailNetwork(privateKey, proxy);
+        
+        logMessage(`Starting account ${index + 1}/${accounts.length}`, "process");
+        await worker.singleProses();
+        
+      } catch (error) {
+        logMessage(`Error processing account: ${error.message}`, "error");
+      }
     }));
-    
+
   } catch (error) {
-    logMessage(`Error: ${error.message}`, "error");
+    logMessage(`Fatal error: ${error.message}`, "error");
   }
 }
 
-main().catch((err) => {
-  console.error(chalk.red("Error occurred:"), err);
+main().catch(err => {
+  console.error(chalk.red("Critical error:"), err);
   process.exit(1);
 });
