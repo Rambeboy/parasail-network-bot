@@ -1,1 +1,215 @@
-const _0x1e6fbb=_0x5de7;(function(_0x337367,_0x347b2e){const _0x4a9e52=_0x5de7,_0x2ebaa1=_0x337367();while(!![]){try{const _0x1d7ba2=parseInt(_0x4a9e52(0xc7))/0x1+-parseInt(_0x4a9e52(0xdd))/0x2+-parseInt(_0x4a9e52(0xc4))/0x3*(-parseInt(_0x4a9e52(0xba))/0x4)+-parseInt(_0x4a9e52(0xa3))/0x5*(parseInt(_0x4a9e52(0xd2))/0x6)+-parseInt(_0x4a9e52(0xbe))/0x7+parseInt(_0x4a9e52(0xd5))/0x8*(parseInt(_0x4a9e52(0xc9))/0x9)+-parseInt(_0x4a9e52(0xe2))/0xa;if(_0x1d7ba2===_0x347b2e)break;else _0x2ebaa1['push'](_0x2ebaa1['shift']());}catch(_0x1375ce){_0x2ebaa1['push'](_0x2ebaa1['shift']());}}}(_0x3357,0x77c96));import _0x34a8c8 from'axios';import{ethers}from'ethers';import _0x5a2e14 from'user-agents';import{logMessage}from'../utils/logger.js';function _0x3357(){const _0x4fd33b=['nodeStats','6597017NyEvRd','Retrying...\x20(','checkInInterval','headers','getCheckInDelay','makeRequest','3861fBBYYG','privatekey','error','649055KuUFqg','Account\x20logged\x20in:\x20','3992571XAJAFE','axiosConfig','\x20|\x20Next\x20check-in:\x20','proxyManager','statsCheck','getSignature','Failed\x20to\x20onboard\x20account:\x20','POST','\x20hours\x20left)','6SsGJkm','loginAccount','onBoard','16qJmWTc','last_checkin_time','Logging\x20in\x20account:\x20','address','Failed\x20to\x20check\x20in\x20account:\x20','Stats\x20received\x20for\x20account:\x20','points','GET','1685798oAiSTE','max','singleProses','data','intervals','254750SsrqYT','Bearer\x20','now','Getting\x20stats\x20for\x20account:\x20','595055UUFiEc','\x20|\x20Address:\x20','checkIn','info','message','endpoints','Current\x20Points:\x20','success','clearIntervals','logStats','Account\x20checked\x20in:\x20','proxy','getStats','statsInterval','toLocaleString','wallet','floor','Failed\x20to\x20get\x20stats\x20for\x20account:\x20','\x20|\x20Check-in\x20time:\x20Not\x20available','token','retryDelay','Failed\x20to\x20login\x20account:\x20','Wallet','2748cBnjoY','setupIntervals','currentToken'];_0x3357=function(){return _0x4fd33b;};return _0x3357();}import{ProxyManager}from'./api/api.js';function _0x5de7(_0x35e923,_0x30708b){const _0x335796=_0x3357();return _0x5de7=function(_0x5de792,_0x1faab1){_0x5de792=_0x5de792-0xa2;let _0x3c5715=_0x335796[_0x5de792];return _0x3c5715;},_0x5de7(_0x35e923,_0x30708b);}import{Config}from'../../config/config.js';const userAgent=new _0x5a2e14();export class parasailNetwork{constructor(_0x17d481,_0xc12769=null){const _0xb92adc=_0x5de7;this[_0xb92adc(0xc5)]=_0x17d481,this[_0xb92adc(0xae)]=_0xc12769,this['wallet']=new ethers[(_0xb92adc(0xb9))](this[_0xb92adc(0xc5)]),this[_0xb92adc(0xcc)]=new ProxyManager(),this[_0xb92adc(0xca)]={...this[_0xb92adc(0xae)]&&{'httpsAgent':this[_0xb92adc(0xcc)]['getProxyAgent'](this[_0xb92adc(0xae)])},'headers':{'User-Agent':userAgent['toString'](),...config[_0xb92adc(0xc1)]}};}async['makeRequest'](_0x356883,_0x4fa6f3,_0x2f4b22={},_0x40f5dd=_0x2f4b22['retries']){const _0x159fed=_0x5de7;for(let _0x51362b=0x0;_0x51362b<_0x40f5dd;_0x51362b++){try{const _0x2b0182=await _0x34a8c8({'method':_0x356883,'url':''+_0x2f4b22['baseUrl']+_0x4fa6f3,...this[_0x159fed(0xca)],..._0x2f4b22});return _0x2b0182;}catch(_0x5f13f1){if(_0x51362b===_0x40f5dd-0x1)return logMessage('Request\x20failed:\x20'+_0x5f13f1['message'],_0x159fed(0xc6)),null;logMessage(_0x159fed(0xbf)+(_0x51362b+0x1)+'/'+_0x40f5dd+')',_0x159fed(0xc6)),await new Promise(_0x3e05e3=>setTimeout(_0x3e05e3,_0x2f4b22[_0x159fed(0xb7)]));}}return null;}async[_0x1e6fbb(0xce)](){const _0x53afc9=_0x1e6fbb,_0x5bacc5=await this['wallet']['signMessage'](config[_0x53afc9(0xa7)]);return _0x5bacc5;}async[_0x1e6fbb(0xd3)](_0x2f4f28){const _0x36c447=_0x1e6fbb;logMessage(_0x36c447(0xd7)+this[_0x36c447(0xb2)][_0x36c447(0xd8)],_0x36c447(0xa6));const _0x2095c8={'address':this[_0x36c447(0xb2)]['address'],'msg':config[_0x36c447(0xa7)],'signature':_0x2f4f28};try{const _0x1c990a=await this[_0x36c447(0xc3)](_0x36c447(0xd0),config[_0x36c447(0xa8)]['verify'],{'data':_0x2095c8});if(!_0x1c990a)return null;return logMessage(_0x36c447(0xc8)+this[_0x36c447(0xb2)][_0x36c447(0xd8)],'success'),_0x1c990a[_0x36c447(0xe0)][_0x36c447(0xb6)];}catch(_0x2a5cf3){return logMessage(_0x36c447(0xb8)+this[_0x36c447(0xb2)][_0x36c447(0xd8)],_0x36c447(0xc6)),null;}}async[_0x1e6fbb(0xd4)](_0x8b0f18){const _0xf68dcc=_0x1e6fbb,_0x34efc3={'Authorization':_0xf68dcc(0xe3)+_0x8b0f18},_0x24dec1={'address':this[_0xf68dcc(0xb2)][_0xf68dcc(0xd8)]};try{const _0x3767f7=await this['makeRequest'](_0xf68dcc(0xd0),config[_0xf68dcc(0xa8)]['onboard'],{'data':_0x24dec1,'headers':_0x34efc3});if(!_0x3767f7)return null;return _0x3767f7[_0xf68dcc(0xe0)];}catch(_0x110e73){return logMessage(_0xf68dcc(0xcf)+this[_0xf68dcc(0xb2)][_0xf68dcc(0xd8)],_0xf68dcc(0xc6)),null;}}async[_0x1e6fbb(0xa5)](_0x3dfec7){const _0x399cb5=_0x1e6fbb,_0x1c0b12={'Authorization':_0x399cb5(0xe3)+_0x3dfec7},_0xeff31d={'address':this[_0x399cb5(0xb2)][_0x399cb5(0xd8)]};try{const _0x3c7acf=await this['makeRequest']('POST',config['endpoints']['checkIn'],{'data':_0xeff31d,'headers':_0x1c0b12});if(!_0x3c7acf)return null;return logMessage(_0x399cb5(0xad)+this[_0x399cb5(0xb2)]['address'],_0x399cb5(0xaa)),_0x3c7acf[_0x399cb5(0xe0)];}catch(_0xd5299){return logMessage(_0x399cb5(0xd9)+this[_0x399cb5(0xb2)][_0x399cb5(0xd8)],'error'),null;}}async['getStats'](_0x4f4fcf){const _0x2d11da=_0x1e6fbb;logMessage(_0x2d11da(0xa2)+this[_0x2d11da(0xb2)][_0x2d11da(0xd8)],_0x2d11da(0xa6));const _0x1fbf2b={'Authorization':_0x2d11da(0xe3)+_0x4f4fcf};try{const _0x1a1aa4=await this[_0x2d11da(0xc3)](_0x2d11da(0xdc),config[_0x2d11da(0xa8)][_0x2d11da(0xbd)]+'?address='+this[_0x2d11da(0xb2)][_0x2d11da(0xd8)],{'headers':_0x1fbf2b});if(!_0x1a1aa4)return null;return logMessage(_0x2d11da(0xda)+this[_0x2d11da(0xb2)][_0x2d11da(0xd8)],'success'),_0x1a1aa4[_0x2d11da(0xe0)];}catch(_0x3b2d47){logMessage(_0x2d11da(0xb4)+this['wallet'][_0x2d11da(0xd8)],_0x2d11da(0xc6));return;}}[_0x1e6fbb(0xc2)](_0x37b008){const _0x29d612=_0x1e6fbb,_0x5c3e04=Math[_0x29d612(0xb3)](Date[_0x29d612(0xe4)]()/0x3e8),_0x57a31f=_0x37b008+0x18*0x3c*0x3c,_0x51a72e=(_0x57a31f-_0x5c3e04)*0x3e8;return Math[_0x29d612(0xde)](_0x51a72e,0x0);}async[_0x1e6fbb(0xdf)](){const _0x5009bb=_0x1e6fbb;try{const _0x4cbb2c=await this['getSignature']();if(!_0x4cbb2c)return;this['currentToken']=await this[_0x5009bb(0xd3)](_0x4cbb2c);if(!this[_0x5009bb(0xbc)])return;await this[_0x5009bb(0xd4)](this[_0x5009bb(0xbc)]),await this[_0x5009bb(0xbb)]();}catch(_0x6b040d){logMessage('Failed\x20to\x20single\x20proses:\x20'+_0x6b040d['message'],_0x5009bb(0xc6));}}async[_0x1e6fbb(0xbb)](){const _0x24b263=_0x1e6fbb;this[_0x24b263(0xab)]();const _0x28ff03=await this[_0x24b263(0xaf)](this[_0x24b263(0xbc)]);if(!_0x28ff03?.[_0x24b263(0xe0)])return;this['logStats'](_0x28ff03[_0x24b263(0xe0)]['points'],_0x28ff03[_0x24b263(0xe0)][_0x24b263(0xd6)]),this['statsInterval']=setInterval(async()=>{const _0x3b2819=_0x24b263,_0x48dadf=await this['getStats'](this[_0x3b2819(0xbc)]);_0x48dadf?.['data']&&this[_0x3b2819(0xac)](_0x48dadf[_0x3b2819(0xe0)][_0x3b2819(0xdb)],_0x48dadf[_0x3b2819(0xe0)][_0x3b2819(0xd6)]);},config[_0x24b263(0xe1)][_0x24b263(0xcd)]);if(_0x28ff03[_0x24b263(0xe0)][_0x24b263(0xd6)]!==undefined){const _0x236b93=this['getCheckInDelay'](_0x28ff03['data'][_0x24b263(0xd6)]);this[_0x24b263(0xc0)]=setTimeout(async()=>{const _0x373acf=_0x24b263;await this['checkIn'](this[_0x373acf(0xbc)]),this[_0x373acf(0xac)](_0x28ff03[_0x373acf(0xe0)][_0x373acf(0xdb)],Math[_0x373acf(0xb3)](Date['now']()/0x3e8)),this['checkInInterval']=setInterval(async()=>{const _0x38d956=_0x373acf;await this[_0x38d956(0xa5)](this['currentToken']),this['logStats'](_0x28ff03[_0x38d956(0xe0)][_0x38d956(0xdb)],Math['floor'](Date[_0x38d956(0xe4)]()/0x3e8));},config[_0x373acf(0xe1)][_0x373acf(0xa5)]);},_0x236b93);}}['logStats'](_0x4af45f,_0x3c22fa){const _0x3b537e=_0x1e6fbb;let _0xae0e31='';if(_0x3c22fa!==undefined){const _0xa5865a=Math[_0x3b537e(0xb3)](Date['now']()/0x3e8),_0x5a6910=_0x3c22fa+0x18*0x3c*0x3c,_0x1e04e5=((_0x5a6910-_0xa5865a)/0xe10)['toFixed'](0x2);_0xae0e31=_0x3b537e(0xcb)+new Date(_0x5a6910*0x3e8)[_0x3b537e(0xb1)]()+'\x20('+_0x1e04e5+_0x3b537e(0xd1);}else _0xae0e31=_0x3b537e(0xb5);logMessage(_0x3b537e(0xa9)+_0x4af45f+_0xae0e31+_0x3b537e(0xa4)+this[_0x3b537e(0xb2)][_0x3b537e(0xd8)],_0x3b537e(0xa6));}[_0x1e6fbb(0xab)](){const _0x20614a=_0x1e6fbb;if(this[_0x20614a(0xc0)])clearInterval(this['checkInInterval']);if(this[_0x20614a(0xb0)])clearInterval(this[_0x20614a(0xb0)]);}}
+import _0x34a8c8 from 'axios';
+import { ethers } from 'ethers';
+import _0x5a2e14 from 'user-agents';
+import { logMessage } from '../utils/logger.js';
+import { ProxyManager } from './api/api.js';
+import { Config } from '../../config/config.js';
+import { privateKey } from '../../accounts/accounts.js';
+const userAgent = new _0x5a2e14();
+export class parasailNetwork {
+  constructor(_0x17d481, _0xc12769 = null) {
+    this.privatekey = _0x17d481;
+    this.proxy = _0xc12769;
+    this.wallet = new ethers.Wallet(this.privatekey);
+    this.proxyManager = new ProxyManager();
+    this.axiosConfig = {
+      ...(this.proxy && {
+        'httpsAgent': this.proxyManager.getProxyAgent(this.proxy)
+      }),
+      'headers': {
+        'User-Agent': userAgent.toString(),
+        ...config.headers
+      }
+    };
+  }
+  async ['makeRequest'](_0x356883, _0x4fa6f3, _0x2f4b22 = {}, _0x40f5dd = _0x2f4b22.retries) {
+    for (let _0x51362b = 0x0; _0x51362b < _0x40f5dd; _0x51362b++) {
+      try {
+        const _0x2b0182 = await _0x34a8c8({
+          'method': _0x356883,
+          'url': '' + _0x2f4b22.baseUrl + _0x4fa6f3,
+          ...this.axiosConfig,
+          ..._0x2f4b22
+        });
+        return _0x2b0182;
+      } catch (_0x5f13f1) {
+        if (_0x51362b === _0x40f5dd - 0x1) {
+          logMessage("Request failed: " + _0x5f13f1.message, "error");
+          return null;
+        }
+        logMessage("Retrying... (" + (_0x51362b + 0x1) + '/' + _0x40f5dd + ')', "error");
+        await new Promise(_0x3e05e3 => setTimeout(_0x3e05e3, _0x2f4b22.retryDelay));
+      }
+    }
+    return null;
+  }
+  async ["getSignature"]() {
+    const _0x5bacc5 = await this.wallet.signMessage(config.message);
+    return _0x5bacc5;
+  }
+  async ["loginAccount"](_0x2f4f28) {
+    logMessage("Logging in account: " + this.wallet.address, "info");
+    const _0x2095c8 = {
+      'address': this.wallet.address,
+      'msg': config.message,
+      'signature': _0x2f4f28
+    };
+    try {
+      const _0x1c990a = await this.makeRequest("POST", config.endpoints.verify, {
+        'data': _0x2095c8
+      });
+      if (!_0x1c990a) {
+        return null;
+      }
+      logMessage("Account logged in: " + this.wallet.address, 'success');
+      return _0x1c990a.data.token;
+    } catch (_0x2a5cf3) {
+      logMessage("Failed to login account: " + this.wallet.address, "error");
+      return null;
+    }
+  }
+  async ["onBoard"](_0x8b0f18) {
+    const _0x34efc3 = {
+      'Authorization': "Bearer " + _0x8b0f18
+    };
+    const _0x24dec1 = {
+      'address': this.wallet.address
+    };
+    try {
+      const _0x3767f7 = await this.makeRequest("POST", config.endpoints.onboard, {
+        'data': _0x24dec1,
+        'headers': _0x34efc3
+      });
+      if (!_0x3767f7) {
+        return null;
+      }
+      return _0x3767f7.data;
+    } catch (_0x110e73) {
+      logMessage("Failed to onboard account: " + this.wallet.address, "error");
+      return null;
+    }
+  }
+  async ["checkIn"](_0x3dfec7) {
+    const _0x1c0b12 = {
+      'Authorization': "Bearer " + _0x3dfec7
+    };
+    const _0xeff31d = {
+      'address': this.wallet.address
+    };
+    try {
+      const _0x3c7acf = await this.makeRequest('POST', config.endpoints.checkIn, {
+        'data': _0xeff31d,
+        'headers': _0x1c0b12
+      });
+      if (!_0x3c7acf) {
+        return null;
+      }
+      logMessage("Account checked in: " + this.wallet.address, "success");
+      return _0x3c7acf.data;
+    } catch (_0xd5299) {
+      logMessage("Failed to check in account: " + this.wallet.address, 'error');
+      return null;
+    }
+  }
+  async ['getStats'](_0x4f4fcf) {
+    logMessage("Getting stats for account: " + this.wallet.address, "info");
+    const _0x1fbf2b = {
+      'Authorization': "Bearer " + _0x4f4fcf
+    };
+    try {
+      const _0x1a1aa4 = await this.makeRequest("GET", config.endpoints.nodeStats + '?address=' + this.wallet.address, {
+        'headers': _0x1fbf2b
+      });
+      if (!_0x1a1aa4) {
+        return null;
+      }
+      logMessage("Stats received for account: " + this.wallet.address, 'success');
+      return _0x1a1aa4.data;
+    } catch (_0x3b2d47) {
+      logMessage("Failed to get stats for account: " + this.wallet.address, "error");
+      return;
+    }
+  }
+  ["getCheckInDelay"](_0x37b008) {
+    const _0x5c3e04 = Math.floor(Date.now() / 0x3e8);
+    const _0x57a31f = _0x37b008 + 86400;
+    const _0x51a72e = (_0x57a31f - _0x5c3e04) * 0x3e8;
+    return Math.max(_0x51a72e, 0x0);
+  }
+  async ["singleProses"]() {
+    try {
+      const _0x4cbb2c = await this.getSignature();
+      if (!_0x4cbb2c) {
+        return;
+      }
+      this.currentToken = await this.loginAccount(_0x4cbb2c);
+      if (!this.currentToken) {
+        return;
+      }
+      await this.onBoard(this.currentToken);
+      await this.setupIntervals();
+    } catch (_0x6b040d) {
+      logMessage("Failed to single proses: " + _0x6b040d.message, "error");
+    }
+  }
+  async ["setupIntervals"]() {
+    this.clearIntervals();
+    const _0x28ff03 = await this.getStats(this.currentToken);
+    if (!_0x28ff03?.["data"]) {
+      return;
+    }
+    this.logStats(_0x28ff03.data.points, _0x28ff03.data.last_checkin_time);
+    this.statsInterval = setInterval(async () => {
+      const _0x48dadf = await this.getStats(this.currentToken);
+      if (_0x48dadf?.['data']) {
+        this.logStats(_0x48dadf.data.points, _0x48dadf.data.last_checkin_time);
+      }
+    }, config.intervals.statsCheck);
+    if (_0x28ff03.data.last_checkin_time !== undefined) {
+      const _0x236b93 = this.getCheckInDelay(_0x28ff03.data.last_checkin_time);
+      this.checkInInterval = setTimeout(async () => {
+        await this.checkIn(this.currentToken);
+        this.logStats(_0x28ff03.data.points, Math.floor(Date.now() / 0x3e8));
+        this.checkInInterval = setInterval(async () => {
+          await this.checkIn(this.currentToken);
+          this.logStats(_0x28ff03.data.points, Math.floor(Date.now() / 0x3e8));
+        }, config.intervals.checkIn);
+      }, _0x236b93);
+    }
+  }
+  ['logStats'](_0x4af45f, _0x3c22fa) {
+    let _0xae0e31 = '';
+    if (_0x3c22fa !== undefined) {
+      const _0xa5865a = Math.floor(Date.now() / 0x3e8);
+      const _0x5a6910 = _0x3c22fa + 86400;
+      const _0x1e04e5 = ((_0x5a6910 - _0xa5865a) / 0xe10).toFixed(0x2);
+      _0xae0e31 = " | Next check-in: " + new Date(_0x5a6910 * 0x3e8).toLocaleString() + " (" + _0x1e04e5 + " hours left)";
+    } else {
+      _0xae0e31 = " | Check-in time: Not available";
+    }
+    logMessage("Current Points: " + _0x4af45f + _0xae0e31 + " | Address: " + this.wallet.address, "info");
+  }
+  ["clearIntervals"]() {
+    if (this.checkInInterval) {
+      clearInterval(this.checkInInterval);
+    }
+    if (this.statsInterval) {
+      clearInterval(this.statsInterval);
+    }
+  }
+}
+
+export async function runAllAccounts() {
+  try {
+    const proxyManager = new ProxyManager();
+    await proxyManager.loadProxies();
+    
+    await Promise.all(accounts.map(async (privateKey) => {
+      const pr = new parasailNetwork(privateKey);
+      await pr.singleProses();
+    }));
+    
+  } catch (error) {
+    logMessage(`Error processing accounts: ${error.message}`, "error");
+  }
+}
