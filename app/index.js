@@ -1,8 +1,8 @@
 import chalk from "chalk";
 import { privateKey } from "./accounts/accounts.js";
-import { parasailNetwork } from "./main/parasailNetwork.js";
-import { ProxyManager } from "./main/proxy.js";
-import { logMessage } from "./utils/logger.js";
+import { parasailNetwork } from "./src/core/core.js";
+import { ProxyManager } from "./src/core/api/api.js";
+import { logMessage } from "./src/utils/logger.js";
 
 const proxyManager = new ProxyManager();
 
